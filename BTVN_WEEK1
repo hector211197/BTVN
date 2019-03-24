@@ -1,40 +1,47 @@
-fun DnaToRna(DNA: String)
+
+fun DnaToRna(DNA: String) : String
 { 
+    var rna:String = ""
     for (A in DNA) {
   		when (A){
-            'G' -> print("C")
-            'C' -> print("G")
-            'A' -> print("U")
-            'T' -> print("A")
+            'G' -> rna = rna.plus("C")
+            'C' -> rna = rna.plus("G")
+            'A' -> rna = rna.plus("U")
+            'T' -> rna = rna.plus("A")
         }
     }
+ 	return rna
 }
 
-fun ToAcronym(Name: String)
+fun ToAcronym(Name: String) :String
 {
-var list = Name.split(" ")
-for( x in list)
-print(x.take(1).toUpperCase())
+    var Acronym:String = ""
+	var list = Name.split(" ")
+	for( x in list)
+	Acronym = Acronym.plus(x.take(1).toUpperCase())
+	return Acronym
 }
 
-fun BTVN3(Number: Int) { 
-    if (((Number % 3) != 0) && ((Number % 5) != 0) && ((Number % 7) != 0))
-    {
-        print (Number)
-        return
+fun BTVN3(Number: Int):String { 
+    if (((Number % 3) != 0) && ((Number % 5) != 0) && ((Number % 7) != 0)) {
+        return Number.toString()
     }
+    var Result:String = ""
 	for (i in 3..7 step 2)
     if ((Number % i) == 0)
     when (i){
-                3 -> print("Pling")
-                5 -> print("Plang")
-                7 -> print("Plong")
+                3 -> Result = Result.plus("Pling")
+                5 -> Result = Result.plus("Plang")
+                7 -> Result = Result.plus("Plong")
     }
+    return Result
 }
-fun main() {
-    BTVN3(34)
-    println()
-    ToAcronym("nguyen cuong liem")
-    println()
-    DnaToRna("GCTGCAGTACG")
+
+fun main( )
+{
+    println(DnaToRna("GCTGCAGTACG"))
+    var name = "Network Protocol"
+    println(name)
+    println("Acronym: " + ToAcronym(name))
+    println(BTVN3(545))
 }
