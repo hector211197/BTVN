@@ -1,6 +1,5 @@
 
-fun DnaToRna(DNA: String) : String
-{ 
+fun DnaToRna(DNA: String) : String { 
     var rna:String = ""
     for (A in DNA) {
   		when (A){
@@ -10,16 +9,15 @@ fun DnaToRna(DNA: String) : String
             'T' -> rna = rna.plus("A")
         }
     }
- 	return rna
+    return rna
 }
 
-fun ToAcronym(Name: String) :String
-{
+fun ToAcronym(Name: String) :String {
     var Acronym:String = ""
-	var list = Name.split(" ")
-	for( x in list)
-	Acronym = Acronym.plus(x.take(1).toUpperCase())
-	return Acronym
+    var list = Name.split(" ")
+    for( x in list)
+    Acronym = Acronym.plus(x.take(1).toUpperCase())
+    return Acronym
 }
 
 fun BTVN3(Number: Int):String { 
@@ -27,7 +25,7 @@ fun BTVN3(Number: Int):String {
         return Number.toString()
     }
     var Result:String = ""
-	for (i in 3..7 step 2)
+    for (i in 3..7 step 2)
     if ((Number % i) == 0)
     when (i){
                 3 -> Result = Result.plus("Pling")
